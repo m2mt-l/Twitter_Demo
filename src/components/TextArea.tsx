@@ -8,19 +8,27 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { TweetInfo } from "../model/tweetInfo";
 import { iconImageUrl } from "../data/iconImageUrl";
+import { IconUrl } from "../model/iconUrl";
 
 const TextArea: FC = () => {
     const [tweetInfo, setTweetInfo] = useState<TweetInfo>({
         name: "",
         id: "",
         content: "",
-        icon: iconImageUrl,
+        iconUrl: "",
     });
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = event.target;
-        console.log(value);
         setTweetInfo({ ...tweetInfo, [name]: value });
+        console.log(tweetInfo);
+    };
+
+    // For select event
+    const handleIconChange = (event: SelectChangeEvent): void => {
+        const { name, value } = event.target;
+        setTweetInfo({ ...tweetInfo, [name]: value });
+        console.log(tweetInfo);
     };
 
     return (
@@ -43,26 +51,29 @@ const TextArea: FC = () => {
                     id="Name"
                     label="Name"
                     variant="outlined"
+                    name="name"
                     sx={{ mx: 1, width: "90%" }}
-                    onChange={handleChange}
+                    onChange={handleTextChange}
                     defaultValue={tweetInfo.name}
                 />
                 <TextField
                     id="ID"
                     label="ID"
                     variant="outlined"
+                    name="id"
                     sx={{ mx: 1, width: "90%" }}
-                    onChange={handleChange}
+                    onChange={handleTextChange}
                     defaultValue={tweetInfo.id}
                 />
                 <TextField
                     id="Tweet Content"
                     label="Tweet Content"
                     variant="outlined"
+                    name="content"
                     multiline
                     rows={4}
                     sx={{ mx: 1, width: "90%" }}
-                    onChange={handleChange}
+                    onChange={handleTextChange}
                     defaultValue={tweetInfo.content}
                 />
                 <FormControl sx={{ mx: 1, width: "90%" }}>
@@ -71,11 +82,13 @@ const TextArea: FC = () => {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Age"
-                        defaultValue={tweetInfo.icon.Twitter}
+                        name="iconUrl"
+                        onChange={handleIconChange}
+                        defaultValue={""}
                     >
-                        <MenuItem value="Twitter">Twitter</MenuItem>
-                        <MenuItem value="Recursion">Recursion</MenuItem>
-                        <MenuItem value="Original">Original</MenuItem>
+                        <MenuItem value={iconImageUrl.Twitter}>Twitter</MenuItem>
+                        <MenuItem value={iconImageUrl.Recursion}>Recursion</MenuItem>
+                        <MenuItem value={iconImageUrl.Original}>Original</MenuItem>
                     </Select>
                 </FormControl>
                 <Button variant="contained">Create Tweet</Button>

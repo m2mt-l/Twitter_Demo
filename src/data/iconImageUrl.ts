@@ -1,7 +1,7 @@
 import { IconUrl } from "../model/iconUrl";
 
 export const iconImageUrl: IconUrl = {
-    Twitter: "",
-    Recursion: "",
-    Original: "",
+    Twitter: "twitter.jpg",
+    Recursion: "recursion.jpg",
+    Original: "original.jpg",
 };
