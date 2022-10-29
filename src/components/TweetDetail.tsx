@@ -9,7 +9,7 @@ const TweetDetail: FC<TweetInfo> = (props) => {
         <div>
             <h3>Detail</h3>
             <Card variant="outlined">
-                <CardContent sx={{ pb: 0 }}></CardContent>
+                <CardContent sx={{ pb: 0, width: "900px" }}></CardContent>
             </Card>
         </div>
     );

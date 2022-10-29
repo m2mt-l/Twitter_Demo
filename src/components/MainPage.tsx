@@ -39,7 +39,11 @@ const MainPage: FC = () => {
                 }}
             >
                 <Header />
-                <TextArea handleTextChange={handleTextChange} handleIconChange={handleIconChange} />
+                <TextArea
+                    handleTextChange={handleTextChange}
+                    handleIconChange={handleIconChange}
+                    props={tweetInfo}
+                />
                 <TweetImage {...tweetInfo} />
             </Box>
         </div>
