@@ -6,9 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { TweetInfo } from "../model/tweetInfo";
 import { iconImageUrl } from "../data/iconImageUrl";
-import { IconUrl } from "../model/iconUrl";
 
 const TextArea: FC<{
     handleTextChange: (event: ChangeEvent<HTMLInputElement>) => void;

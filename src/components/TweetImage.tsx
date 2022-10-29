@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import TweetDetail from "./TweetDetail";
 import TweetSimple from "./TweetSimple";
 import Box from "@mui/material/Box";
+import { TweetInfo } from "../model/tweetInfo";
 
-const TweetImage: FC = () => {
+const TweetImage: FC<TweetInfo> = (props) => {
     return (
         <div>
             <h3>Tweet Image(After push button)</h3>
@@ -18,8 +19,8 @@ const TweetImage: FC = () => {
                     borderColor: "grey.500",
                 }}
             >
-                <TweetSimple />
-                <TweetDetail />
+                <TweetSimple {...props} />
+                <TweetDetail {...props} />
             </Box>
         </div>
     );

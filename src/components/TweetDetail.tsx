@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import { TweetInfo } from "../model/tweetInfo";
 
-const TweetDetail: FC = () => {
+const TweetDetail: FC<TweetInfo> = (props) => {
     return (
         <div>
             <h3>Detail</h3>

@@ -40,7 +40,7 @@ const MainPage: FC = () => {
             >
                 <Header />
                 <TextArea handleTextChange={handleTextChange} handleIconChange={handleIconChange} />
-                <TweetImage />
+                <TweetImage {...tweetInfo} />
             </Box>
         </div>
     );
