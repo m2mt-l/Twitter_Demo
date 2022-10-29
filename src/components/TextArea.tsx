@@ -10,26 +10,11 @@ import { TweetInfo } from "../model/tweetInfo";
 import { iconImageUrl } from "../data/iconImageUrl";
 import { IconUrl } from "../model/iconUrl";
 
-const TextArea: FC = () => {
-    const [tweetInfo, setTweetInfo] = useState<TweetInfo>({
-        name: "",
-        id: "",
-        content: "",
-        iconUrl: "",
-    });
-
-    const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = event.target;
-        setTweetInfo({ ...tweetInfo, [name]: value });
-        console.log(tweetInfo);
-    };
-
-    // For select event
-    const handleIconChange = (event: SelectChangeEvent): void => {
-        const { name, value } = event.target;
-        setTweetInfo({ ...tweetInfo, [name]: value });
-        console.log(tweetInfo);
-    };
+const TextArea: FC<{
+    handleTextChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    handleIconChange: (event: SelectChangeEvent) => void;
+}> = ({ handleTextChange, handleIconChange }) => {
+    const defaultString = "";
 
     return (
         <div>
@@ -54,7 +39,7 @@ const TextArea: FC = () => {
                     name="name"
                     sx={{ mx: 1, width: "90%" }}
                     onChange={handleTextChange}
-                    defaultValue={tweetInfo.name}
+                    defaultValue={defaultString}
                 />
                 <TextField
                     id="ID"
@@ -63,7 +48,7 @@ const TextArea: FC = () => {
                     name="id"
                     sx={{ mx: 1, width: "90%" }}
                     onChange={handleTextChange}
-                    defaultValue={tweetInfo.id}
+                    defaultValue={defaultString}
                 />
                 <TextField
                     id="Tweet Content"
@@ -74,7 +59,7 @@ const TextArea: FC = () => {
                     rows={4}
                     sx={{ mx: 1, width: "90%" }}
                     onChange={handleTextChange}
-                    defaultValue={tweetInfo.content}
+                    defaultValue={defaultString}
                 />
                 <FormControl sx={{ mx: 1, width: "90%" }}>
                     <InputLabel id="demo-simple-select-label">Icon</InputLabel>
@@ -84,7 +69,7 @@ const TextArea: FC = () => {
                         label="Age"
                         name="iconUrl"
                         onChange={handleIconChange}
-                        defaultValue={""}
+                        defaultValue={defaultString}
                     >
                         <MenuItem value={iconImageUrl.Twitter}>Twitter</MenuItem>
                         <MenuItem value={iconImageUrl.Recursion}>Recursion</MenuItem>
