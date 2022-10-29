@@ -7,12 +7,16 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { iconImageUrl } from "../data/iconImageUrl";
+import Icon from "./Icon";
+import { TweetInfo } from "../model/tweetInfo";
 
 const TextArea: FC<{
     handleTextChange: (event: ChangeEvent<HTMLInputElement>) => void;
     handleIconChange: (event: SelectChangeEvent) => void;
-}> = ({ handleTextChange, handleIconChange }) => {
+    props: TweetInfo;
+}> = ({ handleTextChange, handleIconChange, props }) => {
     const defaultString = "";
+    const IconUrl = props;
 
     return (
         <div>
@@ -59,21 +63,29 @@ const TextArea: FC<{
                     onChange={handleTextChange}
                     defaultValue={defaultString}
                 />
-                <FormControl sx={{ mx: 1, width: "90%" }}>
-                    <InputLabel id="demo-simple-select-label">Icon</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        label="Age"
-                        name="iconUrl"
-                        onChange={handleIconChange}
-                        defaultValue={defaultString}
-                    >
-                        <MenuItem value={iconImageUrl.Twitter}>Twitter</MenuItem>
-                        <MenuItem value={iconImageUrl.Recursion}>Recursion</MenuItem>
-                        <MenuItem value={iconImageUrl.Original}>Original</MenuItem>
-                    </Select>
-                </FormControl>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "between",
+                    }}
+                >
+                    <FormControl sx={{ mx: 1, width: "850px" }}>
+                        <InputLabel id="demo-simple-select-label">Icon</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            label="Age"
+                            name="iconUrl"
+                            onChange={handleIconChange}
+                            defaultValue={defaultString}
+                        >
+                            <MenuItem value={iconImageUrl.Twitter}>Twitter</MenuItem>
+                            <MenuItem value={iconImageUrl.Recursion}>Recursion</MenuItem>
+                            <MenuItem value={iconImageUrl.Original}>Original</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <Icon {...props} />
+                </Box>
                 <Button variant="contained">Create Tweet</Button>
             </Box>
         </div>
