@@ -9,6 +9,7 @@ import LinearScaleIcon from "@mui/icons-material/LinearScale";
 
 import { TweetInfo } from "../model/tweetInfo";
 import Icon from "./Icon";
+import Buttons from "./Buttons";
 
 const TweetSimple: FC<TweetInfo> = (props) => {
     return (
@@ -75,6 +76,7 @@ const TweetSimple: FC<TweetInfo> = (props) => {
                             </Typography>
                         </Box>
                     </Box>
+                    <Buttons />
                 </CardContent>
             </Card>
         </div>
