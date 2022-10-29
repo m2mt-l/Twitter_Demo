@@ -9,6 +9,7 @@ import LinearScaleIcon from "@mui/icons-material/LinearScale";
 import Divider from "@mui/material/Divider";
 
 import { TweetInfo } from "../model/tweetInfo";
+import { impression } from "../data/impression";
 import Icon from "./Icon";
 import Buttons from "./Buttons";
 
@@ -86,19 +87,19 @@ const TweetDetail: FC<TweetInfo> = (props) => {
                     <Divider />
                     <Stack direction="row" justifyContent="start" sx={{ py: 1 }}>
                         <Typography sx={{ fontSize: 14, fontWeight: "bold", mr: 1 }}>
-                            118.3K
+                            {impression.retweet}
                         </Typography>
                         <Typography sx={{ fontSize: 14, mr: 1 }} color="text.secondary">
                             Retweet
                         </Typography>
                         <Typography sx={{ fontSize: 14, fontWeight: "bold", mr: 1 }}>
-                            127.8K
+                            {impression.quote}
                         </Typography>
                         <Typography sx={{ fontSize: 14, mr: 1 }} color="text.secondary">
                             Quote Tweets
                         </Typography>
                         <Typography sx={{ fontSize: 14, fontWeight: "bold", mr: 1 }}>
-                            1.3M
+                            {impression.like}
                         </Typography>
                         <Typography sx={{ fontSize: 14, mr: 1 }} color="text.secondary">
                             Likes
