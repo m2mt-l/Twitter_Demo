@@ -12,6 +12,7 @@ import { TweetInfo } from "../model/tweetInfo";
 import { impression } from "../data/impression";
 import Icon from "./Icon";
 import Buttons from "./Buttons";
+import { currentDateForDetail } from "../util/DateHelper";
 
 const TweetDetail: FC<TweetInfo> = (props) => {
     return (
@@ -58,7 +59,7 @@ const TweetDetail: FC<TweetInfo> = (props) => {
                                             sx={{ fontSize: 15, textAlign: "start" }}
                                             color="text.secondary"
                                         >
-                                            {props.id}
+                                            @{props.id}
                                         </Typography>
                                     </Stack>
                                 </Box>
@@ -82,7 +83,7 @@ const TweetDetail: FC<TweetInfo> = (props) => {
                         sx={{ textAlign: "start", fontSize: 15, mb: 1 }}
                         color="text.secondary"
                     >
-                        Date・Twitter Web App
+                        {currentDateForDetail()}・Twitter Web App
                     </Typography>
                     <Divider />
                     <Stack direction="row" justifyContent="start" sx={{ py: 1 }}>
